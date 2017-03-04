@@ -1,9 +1,24 @@
 $(function() {
-  $.ajax ({
+
+  $.ajax({
     url: 'https://www.codeschool.com/users/faljordani.json',
     dataType: 'jsonp',
     success: function(response) {
-      console.log("response",response.courses.completed);
+      addCourses(response.courses.completed);
     }
   });
+
+function addCourses(courses) {
+
+  var $badges = $('#badges');
+
+  courses.forEach(function(courses) {
+
+    $('<div />', {
+      'class': 'course'
+    }).appendTo($badges)
+
+    })
+  }
+  
 });
