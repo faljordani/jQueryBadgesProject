@@ -1,5 +1,7 @@
 $(function() {
-
-  // your code will go here
-
+  url: 'https://www.codeschool.com/users/185856.json',
+  dataType: 'jsonp',
+  success: function(response) {
+    // handle response
+  }
 });
