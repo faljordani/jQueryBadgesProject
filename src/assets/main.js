@@ -8,17 +8,21 @@ $(function() {
     }
   });
 
-function addCourses(courses) {
+  function addCourses(courses) {
 
-  var $badges = $('#badges');
+    var $badges = $('#badges');
 
-  courses.forEach(function(courses) {
+    courses.forEach(function(courses) {
 
-    $('<div />', {
-      'class': 'course'
-    }).appendTo($badges)
+      var $course = $('<div />', {
+        'class': 'course'
+      }).appendTo($badges);
+
+      $('<h3 />', {
+        text: course.title
+      }).appendTo($course);
 
     })
   }
-  
+
 });
