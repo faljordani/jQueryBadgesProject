@@ -1,28 +1,31 @@
 $(function() {
 
-  $.ajax({
-    url: 'https://www.codeschool.com/users/faljordani.json',
-    dataType: 'jsonp',
-    success: function(response) {
-      addCourses(response.courses.completed);
-    }
-  });
+      $.ajax({
+        url: 'https://www.codeschool.com/users/faljordani.json',
+        dataType: 'jsonp',
+        success: function(response) {
+          addCourses(response.courses.completed);
+        }
+      });
 
-  function addCourses(courses) {
+      function addCourses(courses) {
 
-    var $badges = $('#badges');
+        var $badges = $('#badges');
+        courses.forEach(function(course) {
 
-    courses.forEach(function(course) {
+            var $course = $('<div />', {
+              'class': 'course'
+            }).appendTo($badges);
 
-      var $course = $('<div />', {
-        'class': 'course'
-      }).appendTo($badges);
+            $('<h3 />', {
+              text: course.title
+            }).appendTo($course);
 
-      $('<h3 />', {
-        text: course.title
-      }).appendTo($course);
+            $('<img />', {
+                src: course.badge
+              }).appendTo($course);
 
-    })
-  }
+            })
+        }
 
-});
+      });
